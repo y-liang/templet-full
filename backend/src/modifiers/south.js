@@ -15,7 +15,6 @@ const modifier = ({ sourcePath, targetPath, footerPath }) => {
     $src$('.action-button').children('a').toArray().forEach(el => href.push(el.attribs.href));
 
     let count = 0;
-    let link = `<a href=${href[count++]}></a>`;
 
     // target - wrap button with a tag above
     let $tgt$ = load(target);
@@ -23,6 +22,7 @@ const modifier = ({ sourcePath, targetPath, footerPath }) => {
         // this === el
         return el.attribs.src === 'https://t.contentsvr.com/1980181091214740259550/viewListing.gif';
     }).each((i, el) => {
+        let link = `<a href=${href[count++]}></a>`;
         const $el = $tgt$(el);
         $el.wrap(link);
     });
